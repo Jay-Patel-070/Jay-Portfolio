@@ -9,7 +9,6 @@ class HeaderMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
     return  Container(
       height: 50,
       margin: EdgeInsets.fromLTRB(40, 5, 20, 5),
@@ -19,9 +18,11 @@ class HeaderMobile extends StatelessWidget {
           Spacer(),
           Logo(),
           Spacer(),
-          if (screenWidth >= 300)
-            CustomButton(title: 'Download CV', onTap: () {
-          },)
+          Container(
+            height: 20,
+            width: 30,
+            color: Colors.red,
+          )
         ],
       ),
     );

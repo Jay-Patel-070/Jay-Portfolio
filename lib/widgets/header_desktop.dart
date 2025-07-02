@@ -26,14 +26,18 @@ class HeaderDesktop extends StatelessWidget {
               onPressed: (){},
               child: Text(NavTitles[i],
                 style: TextStyle(
-                    color: CustomColor.textColor
+                    color: CustomColor.textColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold
                 ),
               ),
             ),
           Spacer(),
-          CustomButton(title: 'DownLoad CV', onTap: () {
-
-          },)
+          Container(
+            height: 30,
+            width: 50,
+            color: Colors.red,
+          )
         ],
       ),
     );

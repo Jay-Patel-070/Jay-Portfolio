@@ -31,7 +31,7 @@ class MainDesktop extends StatelessWidget {
               Text('Jay Patel',style: TextStyle(
                   color: CustomColor.secondaryTextColor,
                   fontSize: 30,
-                  fontWeight: FontWeight.w400
+                  fontWeight: FontWeight.bold
               ),),
               ShaderMask(
                 shaderCallback: (bounds) => LinearGradient(
@@ -50,25 +50,25 @@ class MainDesktop extends StatelessWidget {
               Row(
                 children: [
                   IconButton(
-                    icon: Icon(LineIcons.instagram, color: Colors.white,size: 30),
+                    icon: Icon(LineIcons.instagram, color: CustomColor.textColor),
                     onPressed: () {
                       // Open Instagram
                     },
                   ),
                   IconButton(
-                    icon: Icon(LineIcons.linkedin, color: Colors.white),
+                    icon: Icon(LineIcons.linkedin, color: CustomColor.textColor),
                     onPressed: () {
                       // Open LinkedIn
                     },
                   ),
                   IconButton(
-                    icon: Icon(LineIcons.whatSApp, color: Colors.white),
+                    icon: Icon(LineIcons.whatSApp, color: CustomColor.textColor),
                     onPressed: () {
                       // Open WhatsApp
                     },
                   ),
                   IconButton(
-                    icon: Icon(LineIcons.github, color: Colors.white),
+                    icon: Icon(LineIcons.github, color: CustomColor.textColor),
                     onPressed: () {
                       // Open GitHub
                     },
@@ -117,14 +117,12 @@ class MainDesktop extends StatelessWidget {
                           ],
                         ),
                       ),
-
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 20),
                         width: 1.5,
                         height: 50,
                         color: CustomColor.secondaryTextColor,
                       ),
-
                       Flexible(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -191,8 +189,11 @@ class MainDesktop extends StatelessWidget {
               )
             ],
           ),
-          Image.network('https://tse1.mm.bing.net/th/id/OIP.Y3Dk8Kbn5Vgje7GwBAJWtgHaLH?cb=thvnextc2&rs=1&pid=ImgDetMain&o=7&rm=3',
-            width: screenSize.width / 4,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.asset('assets/images/Jay_Image.jpg',
+              width: screenSize.width / 4,
+            ),
           )
         ],
       ),

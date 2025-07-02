@@ -14,23 +14,14 @@ class MainMobile extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        // crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Texts
           Text(
-            'Hi I am',
+            ' Hi I am , Jay Patel',
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 30,
               fontWeight: FontWeight.bold,
-              color: CustomColor.secondaryTextColor,
-            ),
-          ),
-          const SizedBox(height: 6),
-          Text(
-            'Jay Patel',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w400,
               color: CustomColor.secondaryTextColor,
             ),
           ),
@@ -42,7 +33,7 @@ class MainMobile extends StatelessWidget {
             child: Text(
               'Mobile Application Developer',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 30,
                 fontWeight: FontWeight.w900,
                 color: Colors.white,
               ),
@@ -51,22 +42,22 @@ class MainMobile extends StatelessWidget {
           const SizedBox(height: 20),
           // Social icons row
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               IconButton(
-                icon: Icon(LineIcons.instagram, color: Colors.white, size: 26),
+                icon: Icon(LineIcons.instagram, color: CustomColor.textColor),
                 onPressed: () {},
               ),
               IconButton(
-                icon: Icon(LineIcons.linkedin, color: Colors.white, size: 26),
+                icon: Icon(LineIcons.linkedin, color: CustomColor.textColor),
                 onPressed: () {},
               ),
               IconButton(
-                icon: Icon(LineIcons.whatSApp, color: Colors.white, size: 26),
+                icon: Icon(LineIcons.whatSApp, color: CustomColor.textColor),
                 onPressed: () {},
               ),
               IconButton(
-                icon: Icon(LineIcons.github, color: Colors.white, size: 26),
+                icon: Icon(LineIcons.github, color: CustomColor.textColor),
                 onPressed: () {},
               ),
             ],
@@ -122,8 +113,7 @@ class MainMobile extends StatelessWidget {
           Center(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Image.network(
-                'https://tse1.mm.bing.net/th/id/OIP.Y3Dk8Kbn5Vgje7GwBAJWtgHaLH?cb=thvnextc2&rs=1&pid=ImgDetMain&o=7&rm=3',
+              child: Image.asset('assets/images/Jay_Image.jpg',
                 width: screenSize.width * 0.6,
               ),
             ),

@@ -9,10 +9,11 @@ class Logo extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Text('Jay',
+      child: Text('Jay Patel',
           style: TextStyle(
               color: CustomColor.primary,
-              fontSize: 30
+              fontSize: 30,
+            fontWeight: FontWeight.bold
           )),
     );
   }

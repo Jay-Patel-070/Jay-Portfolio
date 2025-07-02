@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+import 'package:jay_portfolio/components/custom_button.dart';
+import 'package:jay_portfolio/constants/NavItems.dart';
+import 'package:jay_portfolio/constants/colors.dart';
+import 'package:jay_portfolio/widgets/logo.dart';
+
+class HeaderDesktop extends StatelessWidget {
+  final VoidCallback onTap;
+  const HeaderDesktop({super.key,required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 60,
+      width: double.maxFinite,
+      margin: EdgeInsets.symmetric(vertical: 10,horizontal: 80),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100)
+      ),
+      child: Row(
+        children: [
+          Logo(),
+          Spacer(),
+          for (int i=0 ; i < NavTitles.length ; i++)
+            TextButton(
+              onPressed: (){},
+              child: Text(NavTitles[i],
+                style: TextStyle(
+                    color: CustomColor.textColor
+                ),
+              ),
+            ),
+          Spacer(),
+          CustomButton(title: 'DownLoad CV', onTap: () {
+
+          },)
+        ],
+      ),
+    );
+  }
+}

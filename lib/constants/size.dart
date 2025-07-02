@@ -1,0 +1,1 @@
+const double minDesktopWidth = 825.0;

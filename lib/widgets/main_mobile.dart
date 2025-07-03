@@ -18,7 +18,7 @@ class MainMobile extends StatelessWidget {
         children: [
           // Texts
           Text(
-            ' Hi I am , Jay Patel',
+            'Hi I am , Jay Patel',
             style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,
@@ -28,7 +28,7 @@ class MainMobile extends StatelessWidget {
           const SizedBox(height: 6),
           ShaderMask(
             shaderCallback: (bounds) => LinearGradient(
-              colors: [Color(0xFFFD6F00), Color(0xFFFFC371)],
+              colors: [CustomColor.primary, CustomColor.secondaryTextColor],
             ).createShader(bounds),
             child: Text(
               'Mobile Application Developer',

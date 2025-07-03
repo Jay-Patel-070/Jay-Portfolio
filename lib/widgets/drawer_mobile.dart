@@ -31,7 +31,7 @@ class DrawerMobile extends StatelessWidget {
               onTap: () {
 
               },
-              leading: Icon(NavIcons[i]),
+              leading: Icon(NavIcons[i],color: CustomColor.textColor),
               title: Text(NavTitles[i]),
             )
         ],

@@ -11,10 +11,10 @@ class HeaderMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Container(
       height: 50,
-      margin: EdgeInsets.fromLTRB(40, 5, 20, 5),
+      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 5),
       child: Row(
         children: [
-          IconButton(onPressed: onMenuTap, icon: Icon(Icons.menu)),
+          IconButton(onPressed: onMenuTap, icon: Icon(Icons.menu,color: CustomColor.textColor)),
           Spacer(),
           Logo(),
           Spacer(),
@@ -22,7 +22,7 @@ class HeaderMobile extends StatelessWidget {
             height: 20,
             width: 30,
             color: Colors.red,
-          )
+          ),
         ],
       ),
     );

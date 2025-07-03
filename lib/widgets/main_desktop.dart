@@ -11,7 +11,7 @@ class MainDesktop extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20),
-      height: screenSize.height / 1.2,
+      height: screenSize.height,
       constraints: BoxConstraints(minHeight: 350),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -35,7 +35,7 @@ class MainDesktop extends StatelessWidget {
               ),),
               ShaderMask(
                 shaderCallback: (bounds) => LinearGradient(
-                  colors: [Color(0xFFFD6F00), Color(0xFFFFC371)],
+                  colors: [CustomColor.primary, CustomColor.secondaryTextColor],
                 ).createShader(bounds),
                 child: Text(
                   'Mobile Application Developer',

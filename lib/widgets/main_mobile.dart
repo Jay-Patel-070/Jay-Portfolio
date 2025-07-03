@@ -131,7 +131,7 @@ class MainMobile extends StatelessWidget {
           fit: BoxFit.scaleDown,
           child: Text(
             count,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
               color: CustomColor.primary,
@@ -142,7 +142,7 @@ class MainMobile extends StatelessWidget {
         Text(
           label,
           textAlign: TextAlign.center,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 13,
             color: CustomColor.textColor,
           ),

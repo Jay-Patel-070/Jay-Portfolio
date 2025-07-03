@@ -34,7 +34,7 @@ class SkillCircleCard extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             "${(percentage * 100).toInt()}%",
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
               color: CustomColor.primary,
@@ -43,7 +43,7 @@ class SkillCircleCard extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             skillName,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 14,
               color: CustomColor.secondaryTextColor,
               fontWeight: FontWeight.w500,

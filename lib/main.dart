@@ -1,22 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:jay_portfolio/constants/colors.dart';
 import 'package:jay_portfolio/pages/HomePage.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  // debugPaintSizeEnabled = true;
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context); // listen:true by default
+    // Access current theme colors, this will cause rebuild on notifyListeners
+    final colors = themeProvider.theme;
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // theme: ThemeData.dark(),
       home: Homepage(),
+      theme: ThemeData(
+        scaffoldBackgroundColor: colors.scaffoldBg,
+        primaryColor: colors.primary,
+        textTheme: TextTheme(
+          bodySmall: TextStyle(color: colors.textColor),
+          bodyLarge: TextStyle(color: colors.textColor),
+          bodyMedium: TextStyle(color: colors.textColor),
+        ),
+        // add more theme properties if you want
+      ),
     );
   }
 }

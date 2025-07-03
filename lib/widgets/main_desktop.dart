@@ -98,7 +98,7 @@ class MainDesktop extends StatelessWidget {
                               fit: BoxFit.scaleDown,
                               child: Text(
                                 '3+',
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
                                   color: CustomColor.primary,
@@ -106,7 +106,7 @@ class MainDesktop extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 8),
-                            const Text(
+                            Text(
                               'Years Experience',
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -131,7 +131,7 @@ class MainDesktop extends StatelessWidget {
                               fit: BoxFit.scaleDown,
                               child: Text(
                                 '25+',
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
                                   color: CustomColor.primary,
@@ -139,7 +139,7 @@ class MainDesktop extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 8),
-                            const Text(
+                            Text(
                               'Projects Done',
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -164,7 +164,7 @@ class MainDesktop extends StatelessWidget {
                               fit: BoxFit.scaleDown,
                               child: Text(
                                 '15+',
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
                                   color: CustomColor.primary,
@@ -172,7 +172,7 @@ class MainDesktop extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 8),
-                            const Text(
+                            Text(
                               'Satisfied Users',
                               textAlign: TextAlign.center,
                               style: TextStyle(

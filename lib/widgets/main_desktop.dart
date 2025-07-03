@@ -10,8 +10,8 @@ class MainDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
       height: screenSize.height,
+      margin: EdgeInsets.symmetric(horizontal: 20),
       constraints: BoxConstraints(minHeight: 350),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -21,55 +21,63 @@ class ServiceCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(
-          minWidth: double.infinity,
-          minHeight: 280,
-          maxHeight: 280, // Maximum card height
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // Image container
-              Container(
-                height: 120,
-                alignment: Alignment.center,
-                child: Image.asset(
-                  imgPath,
-                  fit: BoxFit.contain,
-                  width: 120,
-                ),
-              ),
-              const SizedBox(height: 16),
-              // Title
-              Text(
-                title,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                  color: CustomColor.primary
-                ),
-              ),
-              const SizedBox(height: 8),
-              // Description with proper space management
-              Flexible(
-                child: SingleChildScrollView(
-                  physics: const NeverScrollableScrollPhysics(),
-                  child: Text(
-                    description,
-                    style: TextStyle(
-                      color: CustomColor.secondaryTextColor,
-                      fontSize: 14,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final isHeightTooSmall = constraints.maxHeight < 300;
+
+          return ConstrainedBox(
+            constraints: const BoxConstraints(
+              minWidth: double.infinity,
+              minHeight: 200,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Image container
+                  Container(
+                    height: 120,
+                    alignment: Alignment.center,
+                    child: Image.asset(
+                      imgPath,
+                      fit: BoxFit.contain,
+                      width: 120,
                     ),
                   ),
-                ),
+                  const SizedBox(height: 16),
+
+                  // Title
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: CustomColor.primary,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+
+                  // Show description only if height is 300 or more
+                  if (!isHeightTooSmall)
+                    SizedBox(
+                      height: 60, // Bound the height to prevent overflow
+                      child: SingleChildScrollView(
+                        physics: const NeverScrollableScrollPhysics(),
+                        child: Text(
+                          description,
+                          style: TextStyle(
+                            color: CustomColor.secondaryTextColor,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
               ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }

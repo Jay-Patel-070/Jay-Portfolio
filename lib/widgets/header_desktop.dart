@@ -4,10 +4,15 @@ import 'package:jay_portfolio/constants/NavItems.dart';
 import 'package:jay_portfolio/constants/colors.dart';
 import 'package:jay_portfolio/widgets/logo.dart';
 
-class HeaderDesktop extends StatelessWidget {
+class HeaderDesktop extends StatefulWidget {
   final VoidCallback onTap;
   const HeaderDesktop({super.key,required this.onTap});
 
+  @override
+  State<HeaderDesktop> createState() => _HeaderDesktopState();
+}
+
+class _HeaderDesktopState extends State<HeaderDesktop> {
   @override
   Widget build(BuildContext context) {
     return Container(

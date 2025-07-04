@@ -1,9 +1,22 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:jay_portfolio/constants/colors.dart';
 import 'package:jay_portfolio/pages/HomePage.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+        apiKey: "AIzaSyBAeEblGDUdjGWqesXsldIZiDbp6Q5XHNo",
+        authDomain: "jay-portfolio-50ff0.firebaseapp.com",
+        projectId: "jay-portfolio-50ff0",
+        storageBucket: "jay-portfolio-50ff0.firebasestorage.app",
+        messagingSenderId: "645314647818",
+        appId: "1:645314647818:web:2a76a03c0d1216b8054cf3",
+        measurementId: "G-PZQX7WVP36"
+    ),
+  );
   runApp(
     ChangeNotifierProvider(
       create: (_) => ThemeProvider(),

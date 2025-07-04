@@ -97,7 +97,7 @@ class MainDesktop extends StatelessWidget {
                             FittedBox(
                               fit: BoxFit.scaleDown,
                               child: Text(
-                                '3+',
+                                '1+',
                                 style: TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
@@ -130,7 +130,7 @@ class MainDesktop extends StatelessWidget {
                             FittedBox(
                               fit: BoxFit.scaleDown,
                               child: Text(
-                                '25+',
+                                '6+',
                                 style: TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
@@ -163,7 +163,7 @@ class MainDesktop extends StatelessWidget {
                             FittedBox(
                               fit: BoxFit.scaleDown,
                               child: Text(
-                                '15+',
+                                '1800+',
                                 style: TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,

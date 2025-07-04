@@ -37,16 +37,14 @@ class ServiceCard extends StatelessWidget {
                 children: [
                   // Image container
                   Container(
-                    height: 120,
+                    height: 110,
                     alignment: Alignment.center,
                     child: Image.asset(
                       imgPath,
                       fit: BoxFit.contain,
-                      width: 120,
                     ),
                   ),
                   const SizedBox(height: 16),
-
                   // Title
                   Text(
                     title,
@@ -57,11 +55,10 @@ class ServiceCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 8),
-
                   // Show description only if height is 300 or more
                   if (!isHeightTooSmall)
                     SizedBox(
-                      height: 60, // Bound the height to prevent overflow
+                      height: 100, // Bound the height to prevent overflow
                       child: SingleChildScrollView(
                         physics: const NeverScrollableScrollPhysics(),
                         child: Text(
@@ -69,6 +66,7 @@ class ServiceCard extends StatelessWidget {
                           style: TextStyle(
                             color: CustomColor.secondaryTextColor,
                             fontSize: 14,
+                            overflow: TextOverflow.visible
                           ),
                         ),
                       ),

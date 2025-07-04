@@ -44,7 +44,7 @@ class Services extends StatelessWidget {
                     ? 4
                     : constraints.maxWidth > 1010
                     ? 3
-                    : constraints.maxWidth > 680
+                    : constraints.maxWidth > 693
                     ? 2
                     : 1,
                 crossAxisSpacing: 20,
@@ -55,7 +55,7 @@ class Services extends StatelessWidget {
               itemBuilder: (context, index) {
                 final item = ServiceItems[index];
                 return ServiceCard(
-                  imgPath: 'assets/Images/Jay_Image.jpg',
+                  imgPath: item['imgPath']!,
                   title: item['title']!,
                   description: item['description']!,
                 );

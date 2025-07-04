@@ -1,54 +1,60 @@
-import 'package:line_icons/line_icons.dart';
+import 'package:flutter/material.dart';
+import 'package:simple_icons/simple_icons.dart';
 
-final List<Map<String, dynamic>> SkillsItems =  [
+final List<Map<String, dynamic>> SkillsItems = [
   {
-    "skillIcon": LineIcons.mobilePhone,
+    "skillIcon": SimpleIcons.flutter,
     "skillName": "Flutter",
     "percentage": 0.85,
   },
   {
-    "skillIcon": LineIcons.googleDrive, // Firebase icon is not available, using Google Drive as fallback
-    "skillName": "Firebase",
+    "skillIcon": SimpleIcons.react,
+    "skillName": "React Native",
     "percentage": 0.75,
   },
   {
-    "skillIcon": LineIcons.nodeJs,
-    "skillName": "Node.js",
-    "percentage": 0.65,
-  },
-  {
-    "skillIcon": LineIcons.database,
-    "skillName": "MongoDB",
-    "percentage": 0.60,
-  },
-  {
-    "skillIcon": LineIcons.figma,
-    "skillName": "UI/UX",
-    "percentage": 0.70,
-  },
-  {
-    "skillIcon": LineIcons.mobilePhone,
-    "skillName": "Flutter",
-    "percentage": 0.85,
-  },
-  {
-    "skillIcon": LineIcons.googleDrive,
+    "skillIcon": SimpleIcons.firebase,
     "skillName": "Firebase",
-    "percentage": 0.75,
+    "percentage": 0.70,
   },
   {
-    "skillIcon": LineIcons.nodeJs,
-    "skillName": "Node.js",
+    "skillIcon": SimpleIcons.dart,
+    "skillName": "Dart",
+    "percentage": 0.80,
+  },
+  {
+    "skillIcon": SimpleIcons.javascript,
+    "skillName": "JavaScript",
     "percentage": 0.65,
   },
   {
-    "skillIcon": LineIcons.database,
-    "skillName": "MongoDB",
+    "skillIcon": SimpleIcons.css3,
+    "skillName": "CSS",
     "percentage": 0.60,
   },
   {
-    "skillIcon": LineIcons.figma,
-    "skillName": "UI/UX",
+    "skillIcon": SimpleIcons.html5,
+    "skillName": "HTML",
+    "percentage": 0.60,
+  },
+  {
+    "skillIcon": SimpleIcons.redux,
+    "skillName": "Redux & REST API",
+    "percentage": 0.65,
+  },
+  {
+    "skillIcon": SimpleIcons.c,
+    "skillName": "C / C++",
+    "percentage": 0.55,
+  },
+  {
+    "skillIcon": SimpleIcons.figma,
+    "skillName": "UI/UX Design",
     "percentage": 0.70,
+  },
+  {
+    "skillIcon": Icons.animation,
+    "skillName": "Animations",
+    "percentage": 0.60,
   },
 ];

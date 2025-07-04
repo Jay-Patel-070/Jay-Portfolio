@@ -1,32 +1,32 @@
 List<Map> ServiceItems = [
   {
-    "imgPath": "assets/images/ui_design.png",
-    "title": "UI/UX Design",
-    "description": "I create clean, intuitive, and user-friendly interfaces that enhance user experience and engagement, ensuring consistency and accessibility across all devices."
+    "imgPath": "assets/services/ui_ux_to_Flutter.jpg",
+    "title": "UI to Flutter Conversion",
+    "description": "I convert Figma or design files into responsive, pixel-perfect Flutter code, ensuring the UI looks and behaves exactly as intended on all screen sizes."
   },
   {
-    "imgPath": "assets/images/app_dev.png",
+    "imgPath": "assets/services/app_development.jpg",
     "title": "App Development",
-    "description": "From planning to deployment, I build fully functional mobile and web apps using Flutter, delivering high performance, scalability, and clean architecture."
+    "description": "I build fully functional, cross-platform apps using Flutter — covering everything from frontend UI to backend integration with clean architecture."
   },
   {
-    "imgPath": "assets/images/web_dev.png",
+    "imgPath": "assets/services/web_development.jpg",
     "title": "Web Development",
-    "description": "I develop fast, responsive, and SEO-friendly websites using modern frameworks like React or Flutter Web, tailored for performance and user engagement."
+    "description": "Using Flutter Web, I develop fast and responsive websites that are optimized for performance, accessibility, and mobile-first design."
   },
   {
-    "imgPath": "assets/images/api_integration.png",
+    "imgPath": "assets/services/api_integration.png",
     "title": "API Integration",
-    "description": "I specialize in integrating third-party APIs and developing custom RESTful APIs, enabling smooth data exchange and powerful features within apps."
+    "description": "I integrate third-party APIs or build custom REST APIs to extend app functionality and enable smooth communication between client and server."
   },
   {
-    "imgPath": "assets/images/firebase.png",
-    "title": "Firebase Setup",
-    "description": "I configure and manage Firebase services like Authentication, Firestore, Cloud Functions, and Notifications to add real-time, scalable backend functionality."
+    "imgPath": "assets/services/firebase.png",
+    "title": "Firebase & Backend Setup",
+    "description": "I configure Firebase Authentication, Firestore, and Cloud Functions to provide secure, scalable, and real-time backend capabilities for your app."
   },
   {
-    "imgPath": "assets/images/code_review.png",
+    "imgPath": "assets/services/code_review.png",
     "title": "Code Review & Optimization",
-    "description": "I review and refactor codebases to improve maintainability, performance, and readability, following best practices and scalable architecture patterns."
+    "description": "I analyze and refactor existing code to improve structure, performance, and readability while following clean code and scalable architecture principles."
   }
 ];

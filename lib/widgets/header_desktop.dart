@@ -6,15 +6,10 @@ import 'package:jay_portfolio/widgets/logo.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
 
-class HeaderDesktop extends StatefulWidget {
-  final VoidCallback onTap;
-  const HeaderDesktop({super.key,required this.onTap});
+class HeaderDesktop extends StatelessWidget {
+  final Function(int) onNavItemTap;
+  const HeaderDesktop({super.key,required this.onNavItemTap});
 
-  @override
-  State<HeaderDesktop> createState() => _HeaderDesktopState();
-}
-
-class _HeaderDesktopState extends State<HeaderDesktop> {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
@@ -31,7 +26,9 @@ class _HeaderDesktopState extends State<HeaderDesktop> {
           Spacer(),
           for (int i=0 ; i < NavTitles.length ; i++)
             TextButton(
-              onPressed: (){},
+              onPressed: (){
+                onNavItemTap(i);
+              },
               child: Text(NavTitles[i],
                 style: TextStyle(
                     color: CustomColor.textColor,

@@ -12,6 +12,9 @@ class Skills extends StatelessWidget {
       width: double.maxFinite,
       child: Column(
         children: [
+          SizedBox(
+            height: 18,
+          ),
           Text('Skills',style: TextStyle(
               color: CustomColor.textColor,
               fontWeight: FontWeight.bold,

@@ -3,7 +3,8 @@ import 'package:jay_portfolio/constants/NavItems.dart';
 import 'package:jay_portfolio/constants/colors.dart';
 
 class DrawerMobile extends StatelessWidget {
-  const DrawerMobile({super.key});
+  final Function(int) onNavItemTap;
+  const DrawerMobile({super.key,required this.onNavItemTap});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class DrawerMobile extends StatelessWidget {
                   fontSize: 16
               ),
               onTap: () {
-
+                onNavItemTap(i);
               },
               leading: Icon(NavIcons[i],color: CustomColor.textColor),
               title: Text(NavTitles[i]),

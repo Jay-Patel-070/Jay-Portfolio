@@ -19,32 +19,38 @@ import 'package:jay_portfolio/widgets/skills.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 
-class Homepage extends StatefulWidget {
-  const Homepage({super.key});
+class Homepage extends StatelessWidget {
+  Homepage({super.key});
 
-  @override
-  State<Homepage> createState() => _HomepageState();
-}
-
-class _HomepageState extends State<Homepage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final scrollControll = ScrollController();
+  final List<GlobalKey> navBarKeys = List.generate(5, (index) => GlobalKey());
+
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
     return LayoutBuilder(
       builder: (context, constraints) {
         return Scaffold(
             key: scaffoldKey,
             backgroundColor: CustomColor.scaffoldBg,
             drawer:
-                constraints.maxWidth > minDesktopWidth ? null : DrawerMobile(),
+            constraints.maxWidth > minDesktopWidth ? null : DrawerMobile(
+              onNavItemTap: (int navIndex) {
+                scaffoldKey.currentState!.closeDrawer();
+                scrollToSection(navIndex);
+              },),
             body: SingleChildScrollView(
+              controller: scrollControll,
               scrollDirection: Axis.vertical,
               child: Column(
                 children: [
+                  SizedBox(key: navBarKeys.first,),
                   if (constraints.maxWidth >= minDesktopWidth)
                     HeaderDesktop(
-                      onTap: () {},
+                      onNavItemTap: (int navIndex) {
+                        scrollToSection(navIndex);
+                      },
                     )
                   else
                     HeaderMobile(
@@ -56,20 +62,33 @@ class _HomepageState extends State<Homepage> {
                     MainDesktop()
                   else
                     MainMobile(),
-                  Services(),
-                  Skills(),
-                  Projects(),
-                  ContactFormScreen(),
-                  Text('Copyright reserved by jay ',
-                  style: TextStyle(
-                    color: CustomColor.textColor,
-                  ),)
+                  Services(key: navBarKeys[1],),
+                  Skills(key: navBarKeys[2],),
+                  Projects(key: navBarKeys[3],),
+                  ContactFormScreen(key: navBarKeys[4]),
+                  Text('Copyright 2025 by jay ',
+                    style: TextStyle(
+                      color: CustomColor.textColor,
+                    ),),
+                  SizedBox(height: 50,
+                  width: double.maxFinite,
+                  )
                 ],
               ),
             ));
       },
     );
   }
+
+  void scrollToSection(int navIndex) {
+    if (navIndex == 5) {
+      return;
+    }
+    final key = navBarKeys[navIndex];
+    Scrollable.ensureVisible(
+        key.currentContext!,
+        duration: Duration(milliseconds: 1000),
+        curve: Curves.easeInOut
+    );
+  }
 }
-
-

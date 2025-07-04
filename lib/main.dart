@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context); // listen:true by default
-    // Access current theme colors, this will cause rebuild on notifyListeners
     final colors = themeProvider.theme;
 
     return MaterialApp(
@@ -32,6 +31,8 @@ class MyApp extends StatelessWidget {
           bodyLarge: TextStyle(color: colors.textColor),
           bodyMedium: TextStyle(color: colors.textColor),
         ),
+        fontFamily: 'Sora',
+        useMaterial3: true
         // add more theme properties if you want
       ),
     );

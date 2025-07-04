@@ -15,6 +15,9 @@ class Projects extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
+            SizedBox(
+              height: 18,
+            ),
             Text('Projects',style: TextStyle(
                 color: CustomColor.textColor,
                 fontWeight: FontWeight.bold,

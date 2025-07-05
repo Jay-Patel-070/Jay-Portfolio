@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jay_portfolio/components/custom_button.dart';
 import 'package:jay_portfolio/constants/colors.dart';
 import 'package:line_icons/line_icons.dart';
+import '../external_links.dart';
 
 class MainDesktop extends StatelessWidget {
   const MainDesktop({super.key});
@@ -51,34 +52,24 @@ class MainDesktop extends StatelessWidget {
                 children: [
                   IconButton(
                     icon: Icon(LineIcons.instagram, color: CustomColor.textColor),
-                    onPressed: () {
-                      // Open Instagram
-                    },
+                    onPressed: () => ExternalLinks.openInstagram(),
                   ),
                   IconButton(
                     icon: Icon(LineIcons.linkedin, color: CustomColor.textColor),
-                    onPressed: () {
-                      // Open LinkedIn
-                    },
+                    onPressed: () => ExternalLinks.openLinkedIn(),
                   ),
                   IconButton(
                     icon: Icon(LineIcons.whatSApp, color: CustomColor.textColor),
-                    onPressed: () {
-                      // Open WhatsApp
-                    },
+                    onPressed: () => ExternalLinks.openWhatsapp(),
                   ),
                   IconButton(
                     icon: Icon(LineIcons.github, color: CustomColor.textColor),
-                    onPressed: () {
-                      // Open GitHub
-                    },
+                    onPressed: () => ExternalLinks.openGitHub(),
                   ),
                 ],
               ),
               SizedBox(height: 20,),
-              CustomButton(title: 'Download CV', onTap: () {
-
-              },),
+              CustomButton(title: 'Download CV', onTap: () => ExternalLinks.downloadCv()),
               SizedBox(height: 30,),
               Card(
                 color: CustomColor.accent,

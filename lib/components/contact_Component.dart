@@ -25,22 +25,35 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
   @override
   void initState() {
     super.initState();
-    // Listen to changes in required fields
+
     _nameController.addListener(_updateButtonState);
     _phoneController.addListener(_updateButtonState);
     _emailController.addListener(_updateButtonState);
     _roleController.addListener(_updateButtonState);
     _helpController.addListener(_updateButtonState);
+
+    // Run update after first frame, so form state is available
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _updateButtonState();
+    });
+  }
+
+  bool _isFormValid() {
+    return _formKey.currentState?.validate() ?? false;
   }
 
   void _updateButtonState() {
+    final allFieldsFilled =
+        _nameController.text.trim().isNotEmpty &&
+            _phoneController.text.trim().isNotEmpty &&
+            _emailController.text.trim().isNotEmpty &&
+            _roleController.text.trim().isNotEmpty &&
+            _helpController.text.trim().isNotEmpty;
+
+    final formValid = _isFormValid();
+
     setState(() {
-      isButtonEnabled =
-          _nameController.text.trim().isNotEmpty &&
-              _phoneController.text.trim().isNotEmpty &&
-              _emailController.text.trim().isNotEmpty &&
-              _roleController.text.trim().isNotEmpty &&
-              _helpController.text.trim().isNotEmpty;
+      isButtonEnabled = allFieldsFilled && formValid;
     });
   }
 
@@ -117,12 +130,11 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
                           'name': _nameController.text.trim(),
                           'phone': _phoneController.text.trim(),
                           'email': _emailController.text.trim(),
-                          'role': _roleController.text.trim(),
-                          'help': _helpController.text.trim(),
-                          'extra': _extraController.text.trim(),
+                          'his-role': _roleController.text.trim(),
+                          'subject': _helpController.text.trim(),
+                          'description': _extraController.text.trim(),
                           'timestamp': FieldValue.serverTimestamp(),
                         });
-
                         // Optional: Show success message
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Message sent successfully!')),
@@ -187,14 +199,27 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
       controller: controller,
       keyboardType: keyboardType,
       maxLines: maxLines,
-      validator: isRequired
-          ? (value) {
-        if (value == null || value.trim().isEmpty) {
+      validator: (value) {
+        if (isRequired && (value == null || value.trim().isEmpty)) {
           return 'This field is required';
         }
+        if (label.toLowerCase().contains('phone')) {
+          // Phone validation: only digits, length 10 (you can modify)
+          final phoneRegExp = RegExp(r'^\+?[0-9]{10,15}$');
+          if (!phoneRegExp.hasMatch(value!.trim())) {
+            return 'Enter a valid phone number';
+          }
+        } else if (label.toLowerCase().contains('email')) {
+          // Email validation using regex
+          final emailRegExp = RegExp(
+              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+"
+          );
+          if (!emailRegExp.hasMatch(value!.trim())) {
+            return 'Enter a valid email address';
+          }
+        }
         return null;
-      }
-          : null,
+      },
       decoration: InputDecoration(
         labelText: label,
         border: OutlineInputBorder(),
@@ -208,5 +233,5 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
         contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       ),
     );
-}
+  }
 }

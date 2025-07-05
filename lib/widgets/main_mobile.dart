@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jay_portfolio/components/custom_button.dart';
 import 'package:jay_portfolio/constants/colors.dart';
+import 'package:jay_portfolio/external_links.dart';
 import 'package:line_icons/line_icons.dart';
 
 class MainMobile extends StatelessWidget {
@@ -46,19 +47,19 @@ class MainMobile extends StatelessWidget {
             children: [
               IconButton(
                 icon: Icon(LineIcons.instagram, color: CustomColor.textColor),
-                onPressed: () {},
+                onPressed: () => ExternalLinks.openInstagram(),
               ),
               IconButton(
                 icon: Icon(LineIcons.linkedin, color: CustomColor.textColor),
-                onPressed: () {},
+                onPressed: () => ExternalLinks.openLinkedIn(),
               ),
               IconButton(
                 icon: Icon(LineIcons.whatSApp, color: CustomColor.textColor),
-                onPressed: () {},
+                onPressed: () => ExternalLinks.openWhatsapp(),
               ),
               IconButton(
                 icon: Icon(LineIcons.github, color: CustomColor.textColor),
-                onPressed: () {},
+                onPressed: () => ExternalLinks.openGitHub(),
               ),
             ],
           ),
@@ -68,7 +69,7 @@ class MainMobile extends StatelessWidget {
           // Download CV Button
           CustomButton(
             title: 'Download CV',
-            onTap: () {},
+            onTap: () => ExternalLinks.downloadCv(),
           ),
 
           const SizedBox(height: 24),
@@ -87,19 +88,19 @@ class MainMobile extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      _statColumn('3+', 'Years\n Experience'),
+                      _statColumn('1+', 'Years\n Experience'),
                       Container(
                         width: 1.5,
                         height: 50,
                         color: CustomColor.secondaryTextColor,
                       ),
-                      _statColumn('25+', 'Projects\n Done'),
+                      _statColumn('6+', 'Projects\n Done'),
                       Container(
                         width: 1.5,
                         height: 50,
                         color: CustomColor.secondaryTextColor,
                       ),
-                      _statColumn('15+', 'Satisfied\n Users'),
+                      _statColumn('1800+', 'Satisfied\n Users'),
                     ],
                   ),
                 ],

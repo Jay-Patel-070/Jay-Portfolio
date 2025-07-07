@@ -23,7 +23,7 @@ class ExternalLinks {
 
   static Future<void> downloadCv() async {
     await openUrl(
-      'https://drive.google.com/file/d/134mW36vJQFHrBPF5JW_ZqSFtjN1SEitD/view?usp=sharing',
+      'https://drive.google.com/file/d/1YDq3wgjOLGOa_GKTnBUGFfSv5nWL-aGN/view?usp=sharing',
     );
   }
 

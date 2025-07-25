@@ -30,4 +30,3 @@ List<Map> ServiceItems = [
     "description": "I analyze and refactor existing code to improve structure, performance, and readability while following clean code and scalable architecture principles."
   }
 ];
-//hii this is jay

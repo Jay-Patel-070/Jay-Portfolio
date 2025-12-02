@@ -43,17 +43,14 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
   }
 
   void _updateButtonState() {
-    final allFieldsFilled =
-        _nameController.text.trim().isNotEmpty &&
-            _phoneController.text.trim().isNotEmpty &&
-            _emailController.text.trim().isNotEmpty &&
-            _roleController.text.trim().isNotEmpty &&
-            _helpController.text.trim().isNotEmpty;
-
-    final formValid = _isFormValid();
+    final allFieldsFilled = _nameController.text.trim().isNotEmpty &&
+        _phoneController.text.trim().isNotEmpty &&
+        _emailController.text.trim().isNotEmpty &&
+        _roleController.text.trim().isNotEmpty &&
+        _helpController.text.trim().isNotEmpty;
 
     setState(() {
-      isButtonEnabled = allFieldsFilled && formValid;
+      isButtonEnabled = allFieldsFilled;
     });
   }
 
@@ -67,6 +64,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
     _extraController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -78,18 +76,22 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text('Contact Me',style: TextStyle(
-                  color: CustomColor.textColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30),),
+              Text(
+                'Contact Me',
+                style: TextStyle(
+                    color: CustomColor.textColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30),
+              ),
               SizedBox(
                 height: 18,
               ),
               Text(
-                "I'm always open to discussing new opportunities, freelance work, or collaborations. Feel free to reach out — let's build something great together!",style: TextStyle(
-                  color: CustomColor.secondaryTextColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15),
+                "I'm always open to discussing new opportunities, freelance work, or collaborations. Feel free to reach out — let's build something great together!",
+                style: TextStyle(
+                    color: CustomColor.secondaryTextColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15),
               ),
               const SizedBox(height: 24),
               LayoutBuilder(
@@ -119,46 +121,50 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
               ),
               const SizedBox(height: 20),
               Align(
-                alignment: Alignment.centerRight,
-                child: CustomButton(
-                  title: 'Send',
-                  onTap: isButtonEnabled
-                      ? () async {
-                    if (_formKey.currentState!.validate()) {
-                      try {
-                        await FirebaseFirestore.instance.collection('contacts').add({
-                          'name': _nameController.text.trim(),
-                          'phone': _phoneController.text.trim(),
-                          'email': _emailController.text.trim(),
-                          'his-role': _roleController.text.trim(),
-                          'subject': _helpController.text.trim(),
-                          'description': _extraController.text.trim(),
-                          'timestamp': FieldValue.serverTimestamp(),
-                        });
-                        // Optional: Show success message
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Message sent successfully!')),
-                        );
+                  alignment: Alignment.centerRight,
+                  child: CustomButton(
+                    title: 'Send',
+                    onTap: isButtonEnabled
+                        ? () async {
+                            if (_formKey.currentState!.validate()) {
+                              try {
+                                await FirebaseFirestore.instance
+                                    .collection('contacts')
+                                    .add({
+                                  'name': _nameController.text.trim(),
+                                  'phone': _phoneController.text.trim(),
+                                  'email': _emailController.text.trim(),
+                                  'his-role': _roleController.text.trim(),
+                                  'subject': _helpController.text.trim(),
+                                  'description': _extraController.text.trim(),
+                                  'timestamp': FieldValue.serverTimestamp(),
+                                });
+                                // Optional: Show success message
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content:
+                                          Text('Message sent successfully!')),
+                                );
 
-                        // Clear fields
-                        _nameController.clear();
-                        _phoneController.clear();
-                        _emailController.clear();
-                        _roleController.clear();
-                        _helpController.clear();
-                        _extraController.clear();
-
-                      } catch (e) {
-                        // Show error message
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Failed to send message: $e')),
-                        );
-                      }
-                    }
-                  }
-                      : null,
-                )
-              ),
+                                // Clear fields
+                                _nameController.clear();
+                                _phoneController.clear();
+                                _emailController.clear();
+                                _roleController.clear();
+                                _helpController.clear();
+                                _extraController.clear();
+                              } catch (e) {
+                                // Show error message
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      content:
+                                          Text('Failed to send message: $e')),
+                                );
+                              }
+                            }
+                          }
+                        : null,
+                  )),
             ],
           ),
         ),
@@ -174,15 +180,27 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
         if (isFirstColumn) ...[
           _buildTextField(label: 'Name*', controller: _nameController),
           const SizedBox(height: 16),
-          _buildTextField(label: 'Phone Number*', controller: _phoneController, keyboardType: TextInputType.phone),
+          _buildTextField(
+              label: 'Phone Number*',
+              controller: _phoneController,
+              keyboardType: TextInputType.phone),
         ] else ...[
-          _buildTextField(label: 'Email*', controller: _emailController, keyboardType: TextInputType.emailAddress),
+          _buildTextField(
+              label: 'Email*',
+              controller: _emailController,
+              keyboardType: TextInputType.emailAddress),
           const SizedBox(height: 16),
-          _buildTextField(label: 'What do you do?*', controller: _roleController),
+          _buildTextField(
+              label: 'What do you do?*', controller: _roleController),
           const SizedBox(height: 16),
-          _buildTextField(label: 'How can I help you?*', controller: _helpController),
+          _buildTextField(
+              label: 'How can I help you?*', controller: _helpController),
           const SizedBox(height: 16),
-          _buildTextField(label: "Anything you'd like to add?", controller: _extraController, maxLines: 4, isRequired: false),
+          _buildTextField(
+              label: "Anything you'd like to add?",
+              controller: _extraController,
+              maxLines: 4,
+              isRequired: false),
         ],
       ],
     );
@@ -212,8 +230,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
         } else if (label.toLowerCase().contains('email')) {
           // Email validation using regex
           final emailRegExp = RegExp(
-              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+"
-          );
+              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
           if (!emailRegExp.hasMatch(value!.trim())) {
             return 'Enter a valid email address';
           }
@@ -230,7 +247,8 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: CustomColor.primary),
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       ),
     );
   }
